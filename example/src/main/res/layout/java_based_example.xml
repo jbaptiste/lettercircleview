@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:widget="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="40dp"
+    android:gravity="center_horizontal">
+
+    <com.bytoaster.widget.LetterCircleView
+        android:id="@+id/circle1"
+        android:layout_width="50dp"
+        android:layout_height="50dp"/>
+
+    <com.bytoaster.widget.LetterCircleView
+        android:id="@+id/circle2"
+        android:layout_width="50dp"
+        android:layout_height="50dp"/>
+
+    <com.bytoaster.widget.LetterCircleView
+        android:id="@+id/circle3"
+        android:layout_width="50dp"
+        android:layout_height="50dp"/>
+
+    <com.bytoaster.widget.LetterCircleView
+        android:id="@+id/circle4"
+        android:layout_width="50dp"
+        android:layout_height="50dp"/>
+
+    <com.bytoaster.widget.LetterCircleView
+        android:id="@+id/circle5"
+        android:layout_width="50dp"
+        android:layout_height="50dp"/>
+
+    <com.bytoaster.widget.LetterCircleView
+        android:id="@+id/circle6"
+        android:text="M"
+        android:textColor="@color/white"
+        android:textSize="25dp"
+        widget:letter_alpha="125"
+        android:gravity="center"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        widget:content_color="@color/dark_blue"
+        widget:border_color="@color/white"
+        widget:border_size="2dp"
+        widget:shadow_color="@color/grey_B4"
+        widget:shadow_size="2dp"/>
+
+</LinearLayout>
