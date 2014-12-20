@@ -6,6 +6,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.AttributeSet;
+import android.view.Gravity;
 import android.widget.TextView;
 
 /**
@@ -13,47 +14,24 @@ import android.widget.TextView;
  */
 public class LetterCircleView extends TextView {
 
-    /**
-     * Default content.
-     */
     private static final int DEFAULT_CONTENT_COLOR =
             Color.parseColor("#33B5E5");
-
-    /**
-     * Default shadow.
-     */
     private static final int DEFAULT_SHADOW_SIZE = 0;
     private static final int DEFAULT_SHADOW_COLOR =
             Color.parseColor("#E1E1E1");
-
-    /**
-     * Default border.
-     */
     private static final int DEFAULT_BORDER_SIZE = 0;
     private static final int DEFAULT_BORDER_COLOR =
             Color.parseColor("#FFFFFFFF");
+    private static final int DEFAULT_TEXT_ALPHA = 255;
 
-    /**
-     * Default letter.
-     */
-    private static final int DEFAULT_LETTER_ALPHA = 255;
-
-    /**
-     * User inputs.
-     */
     private int contentColor = DEFAULT_CONTENT_COLOR;
-
     private int shadowSize = DEFAULT_SHADOW_SIZE;
     private int shadowColor = DEFAULT_SHADOW_COLOR;
-
     private int borderSize = DEFAULT_BORDER_SIZE;
     private int borderColor = DEFAULT_BORDER_COLOR;
+    private int textAlpha = DEFAULT_TEXT_ALPHA;
 
-    private int letterAlpha = DEFAULT_LETTER_ALPHA;
-
-    /**
-     * Calculated values.
-     */
+    private float scale;
     private int centerX;
     private int centerY;
     private float totalRadius;
@@ -62,14 +40,9 @@ public class LetterCircleView extends TextView {
     private float borderRadius;
     private float contentRadius;
 
-    /**
-     * Paint.
-     */
     private Paint contentPaint;
     private Paint shadowPaint;
     private Paint borderPaint;
-
-    private float scale;
 
     public LetterCircleView(final Context context) {
         super(context);
@@ -111,7 +84,7 @@ public class LetterCircleView extends TextView {
         drawShadow(canvas);
         drawBorder(canvas);
         drawContent(canvas);
-        drawLetter();
+        drawText();
         super.onDraw(canvas);
     }
 
@@ -130,14 +103,13 @@ public class LetterCircleView extends TextView {
         canvas.drawCircle(centerX, centerY, contentRadius, contentPaint);
     }
 
-    private void drawLetter() {
-        setTextColor(getTextColors().withAlpha(letterAlpha));
+    private void drawText() {
+        setTextColor(getTextColors().withAlpha(textAlpha));
     }
 
     private void init(final Context context,
                       final AttributeSet attrs) {
-        this.setFocusable(true);
-        setClickable(true);
+        setGravity(Gravity.CENTER);
 
         scale = getResources().getDisplayMetrics().density;
 
@@ -161,45 +133,45 @@ public class LetterCircleView extends TextView {
             // TODO: proper conversion dp to int
             getAttrBorderDimen(a);
             getAttrShadowDimen(a);
-            getAttrLetterAlpha(a);
+            getAttrTextAlpha(a);
             a.recycle();
         }
     }
 
     private void getAttrContentColor(final TypedArray array) {
         contentColor = array.getColor(
-                R.styleable.LetterCircleView_content_color,
+                R.styleable.LetterCircleView_contentColor,
                 DEFAULT_CONTENT_COLOR);
     }
 
     private void getAttrBorderColor(final TypedArray array) {
         borderColor = array.getColor(
-                R.styleable.LetterCircleView_border_color,
+                R.styleable.LetterCircleView_borderColor,
                 DEFAULT_BORDER_COLOR);
     }
 
     private void getAttrBorderDimen(final TypedArray array) {
         borderSize = (int)array.getDimension(
-                R.styleable.LetterCircleView_border_size,
+                R.styleable.LetterCircleView_borderSize,
                 DEFAULT_BORDER_SIZE);
     }
 
     private void getAttrShadowColor(final TypedArray array) {
         shadowColor = array.getColor(
-                R.styleable.LetterCircleView_shadow_color,
+                R.styleable.LetterCircleView_shadowColor,
                 DEFAULT_SHADOW_COLOR);
     }
 
     private void getAttrShadowDimen(final TypedArray array) {
         shadowSize = (int)array.getDimension(
-                R.styleable.LetterCircleView_shadow_size,
+                R.styleable.LetterCircleView_shadowSize,
                 DEFAULT_SHADOW_SIZE);
     }
 
-    private void getAttrLetterAlpha(final TypedArray array) {
-        letterAlpha = array.getInteger(
-                R.styleable.LetterCircleView_letter_alpha,
-                DEFAULT_LETTER_ALPHA);
+    private void getAttrTextAlpha(final TypedArray array) {
+        textAlpha = array.getInteger(
+                R.styleable.LetterCircleView_textAlpha,
+                DEFAULT_TEXT_ALPHA);
     }
 
     public void setContentColor(final int color) {
@@ -227,8 +199,8 @@ public class LetterCircleView extends TextView {
         invalidate();
     }
 
-    public void setLetterAlpha(final int letterAlpha) {
-        this.letterAlpha = letterAlpha;
+    public void setTextAlpha(final int textAlpha) {
+        this.textAlpha = textAlpha;
         invalidate();
     }
 

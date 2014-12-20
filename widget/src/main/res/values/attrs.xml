@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="LetterCircleView">
-        <attr name="content_color" format="color" />
-        <attr name="border_color" format="color" />
-        <attr name="shadow_color" format="color" />
-        <attr name="border_size" format="dimension" />
-        <attr name="shadow_size" format="dimension" />
-        <attr name="letter_alpha" format="integer" />
+        <attr name="contentColor" format="color" />
+        <attr name="borderColor" format="color" />
+        <attr name="shadowColor" format="color" />
+        <attr name="borderSize" format="dimension" />
+        <attr name="shadowSize" format="dimension" />
+        <attr name="textAlpha" format="integer" />
     </declare-styleable>
 </resources>

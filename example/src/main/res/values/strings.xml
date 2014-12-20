@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">LetterCircleView Example</string>
+    <string name="github_link">Source</string>
 </resources>

@@ -2,7 +2,6 @@ package com.bytoaster.example.widget;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.Gravity;
 
 import com.bytoaster.widget.LetterCircleView;
 import com.bytoaster.widget.example.R;
@@ -43,7 +42,6 @@ public class JavaBasedExample extends Activity {
         circle5.setText("B");
         circle5.setTextColor(getResources().getColor(R.color.white));
         circle5.setTextSize(25);
-        circle5.setGravity(Gravity.CENTER);
         circle5.setContentColor(getResources().getColor(R.color.dark_yellow));
         circle5.setBorderColor(getResources().getColor(R.color.white));
         circle5.setBorderSize(2);
@@ -53,8 +51,7 @@ public class JavaBasedExample extends Activity {
         circle6.setText("M");
         circle6.setTextColor(getResources().getColor(R.color.white));
         circle6.setTextSize(25);
-        circle6.setLetterAlpha(122);
-        circle6.setGravity(Gravity.CENTER);
+        circle6.setTextAlpha(122);
         circle6.setContentColor(getResources().getColor(R.color.dark_blue));
         circle6.setBorderColor(getResources().getColor(R.color.white));
         circle6.setBorderSize(2);
