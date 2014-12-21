@@ -25,12 +25,12 @@ Declaratively:
 
 ```xml
 <com.bytoaster.widget.LetterCircleView
+    android:layout_width="50dp"
+    android:layout_height="50dp"
     android:text="M"
     android:textColor="@color/white"
     android:textSize="25dp"
     widget:textAlpha="125"
-    android:layout_width="50dp"
-    android:layout_height="50dp"
     widget:contentColor="@color/dark_blue"
     widget:borderColor="@color/white"
     widget:borderSize="2dp"
@@ -64,7 +64,7 @@ circle.setShadowSize(2);
 
 See the source of the "example" module for more examples.
 
-The corresponding APK is also available on the Play Store (soon).
+The corresponding APK is also available on the [Play Store](https://play.google.com/store/apps/details?id=com.bytoaster.widget.example).
 
 
 License
